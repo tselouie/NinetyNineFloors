@@ -1,0 +1,11 @@
+### Blueprints Added
+
+**Torch** - The logic for the torch was to allow players to toggle its fire effect on and off only when they are close enough, using a Boolean CanInteract and a FlipFlop node to switch between visible and hidden states. This ensures the interaction is both intuitive and spatially meaningful within the game world.
+
+**HP Orbs** -  These destroyable orbs serve two purposes; one it allows us to have destroyable pick ups that further enable us to keep track of how many of an item has been picked up. It uses component overlap as well as variables to keep track of a float which we will later repurpose as counters
+
+**Teleporter** - The teleporters that we use are originally BP_JumpPads from the template. We have updated the jump pads to display a User Widget which will allow us to select levels to teleport to. As soon as a player steps onto the jump pad it will trigger an ActorBeginOverlap which will give us the menu to change levels.
+
+**Death and Respawn** - A large part of our game will deal with deaths and respawns so this was a very important blue print to add to our game. At this time we have only implemented to level 3 as it is the only one that has some gameplay revolving around jumping through the stage. As soon as the player falls off, it will trigger an ComponentBeginOverlap event from the object and then causing a Death Event on the Character which they will fall and display a death screen. To make the death seem more real, weve added a physics blend weight where the character model will seem like a ragdoll right after they fall to denote their death. After a short delay the player controller will be respawned back to the starting point so they may make another attempt.
+
+**Sprint & Stamina** - As the game progresses, Stamina and sprinting are some of the core skills that our protagonist will use. We implemented a stamina bar for the HUD as it will reference the stamina stat that the player has. When the player holds shift the blueprint will trigger an isRunning boolean which will either decrease stamina while running or increase while walking. At the same time while stamina is being burned the player will be able to move more quickly but after a short period of running the player will be slower so they're advised to be careful.
